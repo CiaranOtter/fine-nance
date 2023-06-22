@@ -9,7 +9,7 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "!dKZ#10@3kc*L8w6i#";
-	$db = "fuel_tracker";
+	$db = "fine_nance";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db);
 

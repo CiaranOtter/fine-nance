@@ -24,7 +24,7 @@
 
         const addInterest = async (rate, min, max) => {
             let body = {
-                    interest_rate: rate,
+                    rate: rate,
                     min: min,
                     max: max
                 };
@@ -41,7 +41,7 @@
             }
 
             let res = await fetch(url, options);
-            let data = await res.json();
+            let data = await res.text();
 
             console.log(data);
 
