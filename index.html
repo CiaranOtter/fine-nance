@@ -41,7 +41,7 @@
             }
 
             let res = await fetch(url, options);
-            let data = await res.text();
+            let data = await res.json();
 
             console.log(data);
 
@@ -51,6 +51,8 @@
             addInterest(interest_rate_in.value, min_limit_in.value, max_limit_in.value)
 
         })
+
+
 
     </script>
 
