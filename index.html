@@ -14,11 +14,25 @@
         <button id="submit">Add</button>
     </div>
 
+    <div id="saving_container">
+        <input type="number" id="amount" placeholder="Amount">
+        <input type="number" id="months" placeholder="Months">
+        <input type="number" id="salary" placeholder="Salary">
+        <button id="calculate">Calculate</button>
+    </div>
+
+    <script src="calculator.js"></script>
     <script>
 
         const interest_rate_in = document.getElementById('interest_rate');
         const min_limit_in = document.getElementById('min_limit_in');
         const max_limit_in = document.getElementById('max_limit_in');
+
+        const p_amount_in = document.getElementById('amount');
+        const months_in = document.getElementById('months');
+        const salary_in = document.getElementById('salary');
+
+        const calculate = document.getElementById('calculate');
 
         const submit = document.getElementById('submit');
 
@@ -52,6 +66,30 @@
 
         })
 
+        const calculator = new Calculator();
+
+        
+
+        let a = [
+            500, 
+            2000,
+            27000,
+            55000,
+            150000,
+            520000,
+            1200000
+        ]
+
+        calculator.fetchRates().then(e => {
+            a.forEach((amount) => {
+                console.log(calculator.find_interest_rate(amount));
+            })
+        })
+        
+        calculate.addEventListener('click', () => {
+            calculator.set_init_amount(p_amount_in.value).set_months(months_in.value).set_salary(salary_in.value);
+            calculator.calculate();
+        })
 
 
     </script>
