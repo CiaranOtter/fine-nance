@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="interest_rate_container">
+        <input type="number" id="interest_rate" placeholder="Interest Rate" min="0" max="100">
+        <input type="number" id="min_limit_in" placeholder="min limit">
+        <input type="number" id="max_limit_in" placeholder="max limit">
+        <button id="submit">Add</button>
+    </div>
+
+    <script>
+
+        const interest_rate_in = document.getElementById('interest_rate');
+        const min_limit_in = document.getElementById('min_limit_in');
+        const max_limit_in = document.getElementById('max_limit_in');
+
+        const submit = document.getElementById('submit');
+
+        const addInterest = async (rate, min, max) => {
+            let url = "http://otternonesenses.co.za/fine-nance/api/add_interest.php";
+            let options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    interest_rate: rate,
+                    min: min,
+                    max: max
+                })
+            }
+
+            let res = await fetch(url, options);
+            let data = await res.json();
+
+            console.log(data);
+
+        }
+        submit.addEventListener('click', () => {
+            
+            addInterest(interest_rate_in.value, min_limit_in.value, max_limit_in.value)
+
+        })
+
+    </script>
+
+</body>
+</html>
