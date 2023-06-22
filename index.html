@@ -23,17 +23,21 @@
         const submit = document.getElementById('submit');
 
         const addInterest = async (rate, min, max) => {
+            let body = {
+                    interest_rate: rate,
+                    min: min,
+                    max: max
+                };
+
+                console.log(body)
+
             let url = "http://otternonesenses.co.za/fine-nance/api/add_interest.php";
             let options = {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    interest_rate: rate,
-                    min: min,
-                    max: max
-                })
+                body: JSON.stringify(body)
             }
 
             let res = await fetch(url, options);

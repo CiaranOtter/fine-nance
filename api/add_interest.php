@@ -1,5 +1,7 @@
 <?php
 
+include('conf.php');
+
 $rate = "";
 $min = "";
 $max ="";
